@@ -66,12 +66,12 @@ def align_face(filepath, predictor):
     # read image
     img = PIL.Image.open(filepath)
 
-    output_size = 256
+    output_size = 512
     transform_size = 256
     enable_padding = True
 
     # Shrink.
-    shrink = int(np.floor(qsize / output_size * 0.5))
+    shrink = int(np.floor(qsize / output_size * 1.0))
     if shrink > 1:
         rsize = (int(np.rint(float(img.size[0]) / shrink)), int(np.rint(float(img.size[1]) / shrink)))
         img = img.resize(rsize, PIL.Image.ANTIALIAS)
